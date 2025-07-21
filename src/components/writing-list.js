@@ -4,13 +4,13 @@ import { domAnimation, LazyMotion, m } from 'framer-motion'
 import Link from 'next/link'
 import { useMemo } from 'react'
 
+import { ClientOnly } from '@/components/client-only' // 1. IMPORT KOMPONEN INI
 import { useViewData } from '@/hooks/useViewData'
 import { cn, dateWithDayAndMonthFormatter, dateWithMonthAndYearFormatter, viewCountFormatter } from '@/lib/utils'
 
 export const WritingList = ({ items }) => {
   const viewData = useViewData()
 
-  // Preprocess viewData into a map for efficient lookups
   const viewDataMap = useMemo(() => {
     const map = new Map()
     viewData?.forEach((item) => {
@@ -19,7 +19,6 @@ export const WritingList = ({ items }) => {
     return map
   }, [viewData])
 
-  // Memoize animation props
   const animationProps = useMemo(
     () => ({
       initial: { opacity: 0 },
@@ -30,7 +29,6 @@ export const WritingList = ({ items }) => {
     []
   )
 
-  // Memoize the items mapping to prevent unnecessary re-renders
   const renderedItems = useMemo(() => {
     return items.map((item) => {
       const [year, itemsArr] = item
@@ -75,18 +73,21 @@ export const WritingList = ({ items }) => {
                       </time>
                     </span>
                     <span className="col-span-2 line-clamp-4 md:col-span-6">{title}</span>
-                    {formattedViewCount && (
-                      <span className="col-span-1">
-                        <m.span
-                          key={`${slug}-views`}
-                          className="flex justify-end tabular-nums"
-                          title={`${formattedViewCount} views`}
-                          {...animationProps}
-                        >
-                          {formattedViewCount}
-                        </m.span>
-                      </span>
-                    )}
+                    {/* 2. BUNGKUS BAGIAN INI DENGAN ClientOnly */}
+                    <ClientOnly>
+                      {formattedViewCount && (
+                        <span className="col-span-1">
+                          <m.span
+                            key={`${slug}-views`}
+                            className="flex justify-end tabular-nums"
+                            title={`${formattedViewCount} views`}
+                            {...animationProps}
+                          >
+                            {formattedViewCount}
+                          </m.span>
+                        </span>
+                      )}
+                    </ClientOnly>
                   </span>
                 </Link>
               </li>

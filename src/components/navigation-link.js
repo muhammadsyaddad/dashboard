@@ -7,7 +7,7 @@ import { memo, useMemo } from 'react'
 
 import { cn } from '@/lib/utils'
 
-export const NavigationLink = memo(({ href, label, icon, shortcutNumber }) => {
+export const NavigationLink = memo(({ href, label, icon, shortcutNumber, isCollapsed }) => {
   const pathname = usePathname()
   const iconCmp = useMemo(() => icon ?? <AtSignIcon size={16} />, [icon])
 
@@ -22,9 +22,10 @@ export const NavigationLink = memo(({ href, label, icon, shortcutNumber }) => {
         className="flex items-center justify-between gap-2 rounded-lg p-2 hover:bg-gray-200"
       >
         <span className="inline-flex items-center gap-2 font-medium">
-          {iconCmp} {label}
+          {iconCmp}
+          {!isCollapsed && label}
         </span>
-        <ArrowUpRightIcon size={16} />
+        {!isCollapsed && <ArrowUpRightIcon size={16} />}
       </a>
     )
   }
@@ -40,16 +41,18 @@ export const NavigationLink = memo(({ href, label, icon, shortcutNumber }) => {
     <Link
       key={href}
       href={href}
+      title={isCollapsed ? label : ''}
       className={cn(
-        'group flex items-center justify-between rounded-lg p-2',
+        'group flex items-center rounded-lg p-2 transition-colors duration-300',
+        isCollapsed ? 'justify-center' : 'justify-between',
         isActive ? 'bg-black text-white' : 'hover:bg-gray-200'
       )}
     >
       <span className="flex items-center gap-2">
         {iconCmp}
-        <span className={cn('font-medium', isActive && 'text-white')}>{label}</span>
+        {!isCollapsed && <span className={cn('font-medium', isActive && 'text-white')}>{label}</span>}
       </span>
-      {shortcutNumber && (
+      {!isCollapsed && shortcutNumber && (
         <span
           className={cn(
             'hidden size-5 place-content-center rounded-sm border border-gray-200 bg-gray-100 text-xs font-medium text-gray-500 transition-colors duration-200 group-hover:border-gray-300 lg:grid',
@@ -63,4 +66,5 @@ export const NavigationLink = memo(({ href, label, icon, shortcutNumber }) => {
     </Link>
   )
 })
+
 NavigationLink.displayName = 'NavigationLink'

@@ -39,9 +39,7 @@ export default async function RootLayout({ children }) {
             </div>
           )}
           <div className="lg:flex">
-            <SideMenu className="relative hidden lg:flex">
-              <MenuContent />
-            </SideMenu>
+            <SideMenu />
             <div className="flex flex-1">{children}</div>
           </div>
         </main>
