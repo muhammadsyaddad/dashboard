@@ -44,7 +44,7 @@ export const NavigationLink = memo(({ href, label, icon, shortcutNumber, isColla
       title={isCollapsed ? label : ''}
       className={cn(
         'group flex items-center rounded-lg p-2 transition-colors duration-300',
-        isCollapsed ? 'justify-center' : 'justify-between',
+        isCollapsed ? 'size-9 justify-center' : 'justify-between',
         isActive ? 'bg-black text-white' : 'hover:bg-gray-200'
       )}
     >

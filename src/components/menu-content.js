@@ -13,7 +13,7 @@ export const MenuContent = ({ isCollapsed, onToggleCollapse }) => {
     <div className="flex w-full flex-col text-sm">
       <div className="flex flex-col gap-4">
         {/* Style di sini tidak diubah agar Anda bisa mengaturnya sendiri */}
-        <div className={cn('flex items-center', isCollapsed ? 'justify-end' : 'justify-between')}>
+        <div className={cn('flex items-center', isCollapsed ? 'justify-center' : 'justify-between')}>
           {!isCollapsed && (
             <Link href="/" className="link-card inline-flex items-center gap-2">
               <img
