@@ -6,6 +6,7 @@ import {
   LinkedinIcon,
   NavigationIcon,
   PencilLineIcon,
+  Server,
   SparklesIcon,
   Wand2Icon,
   YoutubeIcon
@@ -101,30 +102,30 @@ export const LINKS = [
     label: 'Home',
     icon: <SparklesIcon size={16} />
   },
+  // {
+  //   href: '/writing',
+  //   label: 'Writing',
+  //   icon: <PencilLineIcon size={16} />
+  // },
+  // {
+  //   href: '/journey',
+  //   label: 'Journey',
+  //   icon: <NavigationIcon size={16} />
+  // },
+  // {
+  //   href: '/stack',
+  //   label: 'Stack',
+  //   icon: <Wand2Icon size={16} />
+  // },
+  // {
+  //   href: '/workspace',
+  //   label: 'Workspace',
+  //   icon: <ArmchairIcon size={16} />
+  // },
   {
-    href: '/writing',
-    label: 'Writing',
-    icon: <PencilLineIcon size={16} />
-  },
-  {
-    href: '/journey',
-    label: 'Journey',
-    icon: <NavigationIcon size={16} />
-  },
-  {
-    href: '/stack',
-    label: 'Stack',
-    icon: <Wand2Icon size={16} />
-  },
-  {
-    href: '/workspace',
-    label: 'Workspace',
-    icon: <ArmchairIcon size={16} />
-  },
-  {
-    href: '/bookmarks',
-    label: 'Bookmarks',
-    icon: <BookmarkIcon size={16} />
+    href: '/devices',
+    label: 'Devices',
+    icon: <Server size={16} />
   }
 ]
 
@@ -210,9 +211,9 @@ export const SCROLL_AREA_ID = 'scroll-area'
 export const MOBILE_SCROLL_THRESHOLD = 20
 export const SUPABASE_TABLE_NAME = 'pages'
 
-export const SUBMIT_BOOKMARK_FORM_TITLE = 'Submit a bookmark'
-export const SUBMIT_BOOKMARK_FORM_DESCRIPTION =
-  "Send me a website you like and if I like it too, you'll see it in the bookmarks list. With respect, please do not submit more than 5 websites a day."
+export const SUBMIT_DEVICE_FORM_TITLE = 'Add Server'
+export const SUBMIT_DEVICE_FORM_DESCRIPTION =
+  "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
 
 export const CONTENT_TYPES = {
   PAGE: 'page',

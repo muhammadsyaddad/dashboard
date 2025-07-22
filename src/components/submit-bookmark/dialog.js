@@ -1,9 +1,9 @@
 'use client'
 
-import { SendIcon } from 'lucide-react'
+import { Plus } from 'lucide-react'
 import { useState } from 'react'
 
-import { SubmitBookmarkForm } from '@/components/submit-bookmark/form'
+import { SubmitBookmarkForm } from '@/components/submit-bookmark/formserver'
 import { Button } from '@/components/ui/button'
 import {
   Dialog,
@@ -13,7 +13,7 @@ import {
   DialogTitle,
   DialogTrigger
 } from '@/components/ui/dialog'
-import { SUBMIT_BOOKMARK_FORM_DESCRIPTION, SUBMIT_BOOKMARK_FORM_TITLE } from '@/lib/constants'
+import { SUBMIT_DEVICE_FORM_DESCRIPTION, SUBMIT_DEVICE_FORM_TITLE } from '@/lib/constants'
 
 export const SubmitBookmarkDialog = ({ bookmarks, currentBookmark }) => {
   const [open, setOpen] = useState(false)
@@ -21,15 +21,14 @@ export const SubmitBookmarkDialog = ({ bookmarks, currentBookmark }) => {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button size="xs" className="relative">
-          <SendIcon size={16} className="mr-2" />
-          Submit
+        <Button size="xs" className="relative items-center">
+          <Plus size={16} className="gap-2" />
         </Button>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>{SUBMIT_BOOKMARK_FORM_TITLE}</DialogTitle>
-          <DialogDescription>{SUBMIT_BOOKMARK_FORM_DESCRIPTION}</DialogDescription>
+          <DialogTitle>{SUBMIT_DEVICE_FORM_TITLE}</DialogTitle>
+          <DialogDescription>{SUBMIT_DEVICE_FORM_DESCRIPTION}</DialogDescription>
         </DialogHeader>
         <SubmitBookmarkForm setFormOpen={setOpen} bookmarks={bookmarks} currentBookmark={currentBookmark} />
       </DialogContent>

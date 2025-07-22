@@ -19,22 +19,35 @@ export default async function BookmarksLayout({ children }) {
   return (
     <>
       <div className="flex w-full">
-        <SideMenu title="Bookmarks" bookmarks={bookmarks} isInner>
-          <Suspense fallback={<ScreenLoadingSpinner />}>
-            <div className="flex flex-col gap-1 text-sm">
-              {bookmarks?.map((bookmark) => {
-                return (
+        <SideMenu title="Devices" bookmarks={bookmarks} isInner>
+          <div className="flex h-full flex-col justify-between">
+            <Suspense fallback={<ScreenLoadingSpinner />}>
+              <div className="flex flex-col gap-1 text-sm">
+                {bookmarks?.map((bookmark) => (
                   <ListItem
                     key={bookmark._id}
                     path={`/bookmarks/${bookmark.slug}`}
                     title={bookmark.title}
                     description={`${bookmark.count} bookmarks`}
                   />
-                )
-              })}
-            </div>
-          </Suspense>
+                ))}
+              </div>
+            </Suspense>
+            <Suspense fallback={<ScreenLoadingSpinner />}>
+              <div className="flex flex-col gap-1 text-sm">
+                {bookmarks?.map((bookmark) => (
+                  <ListItem
+                    key={bookmark._id}
+                    path={`/bookmarks/${bookmark.slug}`}
+                    title={bookmark.title}
+                    description={`${bookmark.count} bookmarks`}
+                  />
+                ))}
+              </div>
+            </Suspense>
+          </div>
         </SideMenu>
+
         <div className="lg:bg-grid flex-1">{children}</div>
       </div>
       <Toaster

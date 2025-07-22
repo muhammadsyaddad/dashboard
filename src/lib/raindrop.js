@@ -2,21 +2,21 @@ import 'server-only'
 
 // Data bookmark palsu
 const dummyBookmarks = [
-  { _id: 1, title: 'Design', slug: 'design', count: 10 },
-  { _id: 2, title: 'Frontend', slug: 'frontend', count: 25 },
-  { _id: 3, title: 'Apps & Tools', slug: 'apps-and-tools', count: 15 }
+  { _id: 1, title: 'http://localhost:3000', slug: 'design', count: 10 },
+  { _id: 2, title: 'http://localhost:30001', slug: 'frontend', count: 25 },
+  { _id: 3, title: 'http://localhost:3003', slug: 'apps-and-tools', count: 15 }
 ]
 
 const dummyBookmarkItems = {
   result: true,
   items: [
-    { _id: 101, title: 'Cool Design Tool', link: '#', domain: 'example.com', excerpt: 'A great tool for designers.' },
+    { _id: 101, title: 'no', link: '#', domain: 'example.com', excerpt: 'A great tool for designers.' },
     { _id: 102, title: 'Frontend Weekly', link: '#', domain: 'example.com', excerpt: 'The best frontend newsletter.' }
   ],
   count: 2
 }
 
-export const getBookmarkItems = async (id, pageIndex = 0) => {
+export const getBookmarkItems = async (id = 0) => {
   console.info(`Menggunakan data dummy untuk bookmark items ID: ${id}`)
   return Promise.resolve(dummyBookmarkItems)
 }

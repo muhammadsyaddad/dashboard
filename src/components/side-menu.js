@@ -1,18 +1,16 @@
 'use client'
 
-import { RadioIcon } from 'lucide-react'
 import dynamic from 'next/dynamic' // Pastikan ini ada
 import { usePathname, useRouter } from 'next/navigation'
 import { useState } from 'react'
 
 import { LoadingSpinner } from '@/components/loading-spinner'
-import { ScrollArea } from '@/components/scroll-area'
-import { Button } from '@/components/ui/button'
 import { MenuContent } from '@/components/menu-content'
+import { ScrollArea } from '@/components/scroll-area'
 import { useKeyPress } from '@/hooks/useKeyPress'
 import { cn } from '@/lib/utils'
 
-// --- BARIS YANG HILANG DAN SEKARANG DIKEMBALIKAN ---
+// INI ADALAH BARIS PENTING YANG MUNGKIN HILANG
 const SubmitBookmarkDialog = dynamic(
   () => import('@/components/submit-bookmark/dialog').then((mod) => mod.SubmitBookmarkDialog),
   {
@@ -20,7 +18,6 @@ const SubmitBookmarkDialog = dynamic(
     ssr: false
   }
 )
-// ----------------------------------------------------
 
 const keyCodePathnameMapping = {
   Digit1: '/',
@@ -45,9 +42,8 @@ export const SideMenu = ({ title, bookmarks = [], isInner, children }) => {
     if (targetPathname && targetPathname !== pathname) router.push(targetPathname)
   }
 
-  const isWritingPath = pathname.startsWith('/writing')
-  const isBookmarksPath = pathname.startsWith('/bookmarks')
-  const currentBookmark = bookmarks?.find((bookmark) => `/bookmarks/${bookmark.slug}` === pathname)
+  const isBookmarksPath = pathname.startsWith('/devices')
+  const currentBookmark = bookmarks?.find((bookmark) => `/devices/${bookmark.slug}` === pathname)
 
   const sidebarWidthClass = isInner
     ? isCollapsed
@@ -75,20 +71,6 @@ export const SideMenu = ({ title, bookmarks = [], isInner, children }) => {
               <div className="flex items-center justify-between">
                 <span className="text-sm font-semibold tracking-tight">{title}</span>
                 <div className="flex items-center gap-2">
-                  {(isWritingPath || isBookmarksPath) && (
-                    <Button variant="outline" size="xs" asChild>
-                      <a
-                        href={isWritingPath ? '/writing.xml' : '/bookmarks.xml'}
-                        title="RSS feed"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <RadioIcon size={16} className="mr-2" />
-                        RSS feed
-                      </a>
-                    </Button>
-                  )}
-                  {/* Panggilan ke komponen ini sekarang akan berhasil */}
                   {isBookmarksPath && <SubmitBookmarkDialog bookmarks={bookmarks} currentBookmark={currentBookmark} />}
                 </div>
               </div>

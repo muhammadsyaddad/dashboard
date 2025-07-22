@@ -1,12 +1,12 @@
 'use client'
 
-import Link from 'next/link'
 import { PanelLeftClose, PanelLeftOpen } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import Link from 'next/link'
 
 import { NavigationLink } from '@/components/navigation-link'
-import { LINKS } from '@/lib/constants'
 import { Button } from '@/components/ui/button'
+import { LINKS } from '@/lib/constants'
+import { cn } from '@/lib/utils'
 
 export const MenuContent = ({ isCollapsed, onToggleCollapse }) => {
   return (
@@ -34,7 +34,7 @@ export const MenuContent = ({ isCollapsed, onToggleCollapse }) => {
           </Button>
         </div>
 
-        <div className="flex flex-col gap-1">
+        <div className={cn('flex flex-col gap-1', isCollapsed && 'items-center')}>
           {LINKS.map((link, linkIndex) => (
             <NavigationLink
               key={link.href}
