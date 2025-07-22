@@ -15,6 +15,14 @@ const dummyBookmarkItems = {
   ],
   count: 2
 }
+export const getServers = async () => {
+  console.info('Menggunakan data dummy untuk servers.')
+  const dummyServers = [
+    { _id: 'server-01', name: 'Primary Server', slug: 'primary-server' },
+    { _id: 'server-02', name: 'Backup West', slug: 'backup-west' }
+  ]
+  return Promise.resolve(dummyServers)
+}
 
 export const getBookmarkItems = async (id = 0) => {
   console.info(`Menggunakan data dummy untuk bookmark items ID: ${id}`)
