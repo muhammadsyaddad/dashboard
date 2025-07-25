@@ -20,7 +20,6 @@ export const SubmitBookmarkForm = memo(({ className, setFormOpen, currentBookmar
       defaultValues: {
         url: '',
         email: '',
-        type: currentBookmark?.title ?? ''
       }
     }),
     [currentBookmark]

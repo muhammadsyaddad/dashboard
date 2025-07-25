@@ -115,7 +115,6 @@ export const FloatingHeader = memo(({ scrollTitle, title, goBackLink, bookmarks,
               </div>
             </div>
           </div>
-          {/* This is a hack to show writing views with framer motion reveal effect */}
           {scrollTitle && isWritingPath && <div className="flex min-w-[50px] justify-end">{children}</div>}
         </div>
       </div>

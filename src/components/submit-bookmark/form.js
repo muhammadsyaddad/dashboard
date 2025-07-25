@@ -12,6 +12,8 @@ import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, For
 import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { cn } from '@/lib/utils'
+import { DEVICESTYPE } from '@/lib/constants'
+
 
 export const SubmitBookmarkForm = memo(({ className, setFormOpen, bookmarks, currentBookmark }) => {
   const memoizedFormOptions = useMemo(
@@ -52,8 +54,7 @@ export const SubmitBookmarkForm = memo(({ className, setFormOpen, bookmarks, cur
         toast('Bookmark submitted', {
           description: (
             <span>
-              <span className="underline underline-offset-4">{values.url}</span> has been submitted. Thank you for your
-              contribution!
+              <span className="underline underline-offset-4">{values.url}</span> your server has been add
             </span>
           )
         })
@@ -103,9 +104,9 @@ export const SubmitBookmarkForm = memo(({ className, setFormOpen, bookmarks, cur
             </SelectTrigger>
           </FormControl>
           <SelectContent>
-            {bookmarks.map((bookmark) => (
-              <SelectItem key={bookmark.slug} value={bookmark.title}>
-                {bookmark.title}
+            {DEVICESTYPE.map((bookmark) => (
+              <SelectItem key={bookmark.nama}>
+                {bookmark.nama}
               </SelectItem>
             ))}
           </SelectContent>

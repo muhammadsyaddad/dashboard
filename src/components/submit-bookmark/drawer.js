@@ -1,3 +1,4 @@
+// src/components/submit-bookmark/drawer.js
 'use client'
 
 import { SendIcon } from 'lucide-react'
@@ -13,7 +14,9 @@ import {
   DrawerTitle,
   DrawerTrigger
 } from '@/components/ui/drawer'
-import { SUBMIT_BOOKMARK_FORM_DESCRIPTION, SUBMIT_BOOKMARK_FORM_TITLE } from '@/lib/constants'
+// --- PERBAIKAN DI SINI ---
+// Ganti SUBMIT_BOOKMARK_FORM_... menjadi SUBMIT_DEVICE_FORM_...
+import { SUBMIT_DEVICE_FORM_DESCRIPTION, SUBMIT_DEVICE_FORM_TITLE } from '@/lib/constants' //
 
 export const SubmitBookmarkDrawer = ({ bookmarks, currentBookmark }) => {
   const [open, setOpen] = useState(false)
@@ -28,8 +31,8 @@ export const SubmitBookmarkDrawer = ({ bookmarks, currentBookmark }) => {
       </DrawerTrigger>
       <DrawerContent className="px-6">
         <DrawerHeader className="sm:text-center">
-          <DrawerTitle>{SUBMIT_BOOKMARK_FORM_TITLE}</DrawerTitle>
-          <DrawerDescription className="m-0">{SUBMIT_BOOKMARK_FORM_DESCRIPTION}</DrawerDescription>
+          <DrawerTitle>{SUBMIT_DEVICE_FORM_TITLE}</DrawerTitle> {/* <-- Penggunaan yang benar */}
+          <DrawerDescription className="m-0">{SUBMIT_DEVICE_FORM_DESCRIPTION}</DrawerDescription> {/* <-- Penggunaan yang benar */}
         </DrawerHeader>
         <SubmitBookmarkForm
           setFormOpen={setOpen}

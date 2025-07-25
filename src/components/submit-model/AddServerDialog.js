@@ -4,9 +4,9 @@ import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
 import { PlusIcon } from 'lucide-react'
-import { AddDeviceForm } from './add-device-form' // Impor form yang baru kita buat
+import { SubmitDeviceForm } from '@/components/submit-model/form' // Impor form yang baru kita buat
 
-export const AddDeviceDialog = () => {
+export const AddDeviceDialog = ({ onModelAdded, currentModel, Models, ModelSize }) => {
   const [open, setOpen] = useState(false)
 
   return (
@@ -18,9 +18,15 @@ export const AddDeviceDialog = () => {
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Add New Device</DialogTitle>
+          <DialogTitle>Model</DialogTitle>
         </DialogHeader>
-        <AddDeviceForm setFormOpen={setOpen} />
+        <SubmitDeviceForm
+          setFormOpen={setOpen}
+          onModelAdded={onModelAdded}
+          currentModel={currentModel}
+          Models={Models}
+          ModelSize={ModelSize}
+        />
       </DialogContent>
     </Dialog>
   )

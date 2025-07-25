@@ -220,3 +220,7 @@ export const CONTENT_TYPES = {
   POST: 'post',
   LOGBOOK: 'logbook'
 }
+export const DEVICESTYPE = [{ name: 'Cctv' }, { name: 'Webcam' }]
+
+export const MODELNAME = [{ name: 'Yolo 1' }, { name: 'Yolo 2' }]
+export const MODELSIZE = [{ name: 'n' }, { name: 's' }]
