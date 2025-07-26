@@ -50,6 +50,7 @@ export default function DevicesLayout({ children }) {
         // Meneruskan data tipe perangkat (DEVICESTYPE)
       ></SideMenu>
       <main className="flex-1 overflow-auto">
+        hmmmmmmm
         {/* Konten dari src/app/devices/page.js akan dirender di sini */}
         {children}
       </main>

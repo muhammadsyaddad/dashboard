@@ -19,21 +19,7 @@ export default async function Writing() {
 
   return (
     <ScrollArea className="lg:hidden">
-      <FloatingHeader title="Devices" bookmarks={bookmarks} />
-      <Suspense fallback={<ScreenLoadingSpinner />}>
-        {bookmarks?.map((bookmark) => {
-          return (
-            <Link
-              key={bookmark._id}
-              href={`/bookmarks/${bookmark.slug}`}
-              className="flex flex-col gap-1 border-b px-4 py-3 text-sm hover:bg-gray-100"
-            >
-              <span className="font-medium">{bookmark.title}</span>
-              <span className="text-slate-500">{bookmark.count} bookmarks</span>
-            </Link>
-          )
-        })}
-      </Suspense>
+      <div className="text-xl text-black">hahahahah</div>
     </ScrollArea>
   )
 }
