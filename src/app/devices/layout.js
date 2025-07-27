@@ -43,7 +43,7 @@ export default function DevicesLayout({ children }) {
       {/* SideMenu akan berada di sini */}
       <SideMenu
         title1="Tambah Perangkat" // Judul untuk bagian perangkat
-        tittle2="Tambah Model" // Judul untuk bagian model
+        title2="Tambah Model" // Judul untuk bagian model
         isInner={true} // Menandakan ini sebagai inner sidebar (sesuai logika SideMenu)
         onDeviceAdded={handleDeviceAdded} // Meneruskan fungsi callback penambah perangkat
         onModelAdded={handleModelAdded} // Meneruskan fungsi callback penambah model
