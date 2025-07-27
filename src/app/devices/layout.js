@@ -49,11 +49,7 @@ export default function DevicesLayout({ children }) {
         onModelAdded={handleModelAdded} // Meneruskan fungsi callback penambah model
         // Meneruskan data tipe perangkat (DEVICESTYPE)
       ></SideMenu>
-      <main className="flex-1 overflow-auto">
-        hmmmmmmm
-        {/* Konten dari src/app/devices/page.js akan dirender di sini */}
-        {children}
-      </main>
+      <main className="flex-1 overflow-auto">{children}</main>
     </div>
   )
 }
